@@ -1,31 +1,30 @@
-const express = require('express');
-const { chats } = require('./data/data');
-const dotenv = require('dotenv');
+const express = require("express");
+const dotenv = require("dotenv"); // to use .env file
+const { chats } = require("./data/data");
+const { connect } = require("mongoose");
+const connectDB = require("./config/db");
+const colors = require("colors");
+const userRoutes = require("./routes/userRoutes");
+const { notfound, errorHandler } = require("./middleware/errorMiddleware");
+const chatRoutes = require("./routes/chatRoutes");
 
+
+dotenv.config({ path: __dirname + "/.env" });
 const app = express();
+connectDB();
 
-dotenv.config(/*{ path: __dirname + "/.env" }*/);
-
-
-// app.use(express.json()); // to accept json data
+app.use(express.json()); // to accept json data
 
 app.get("/", (req, res) => {
   res.send("API is running successfully");
 });
 
-app.get("/api/chat", (req, res) => {
-  res.send(chats);
-});
+app.use("/api/user", userRoutes);
+app.use("/api/chats", chatRoutes);
 
-app.get("/api/chat/:id", (req, res) => {
-//   console.log(req.params.id);
-const singleChat = chats.find((chat) => chat._id === req.params.id);
-res.send(singleChat);
-});
-
-// app.use("/api/user", userRoutes);
-// app.use("/api/chats", chatRoutes);
+app.use(notfound);
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(5000, console.log(`Server started on port ${PORT}`/*.yellow.bold*/));
+app.listen(5000, console.log(`Server started on port ${PORT}`.yellow.bold));
