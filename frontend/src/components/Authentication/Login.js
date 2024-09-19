@@ -73,7 +73,7 @@ const Login = () => {
   return (
     <VStack spacing="10px">
       <FormControl id="email" isRequired>
-        <FormLabel>Email Address</FormLabel>
+        <FormLabel color="white">Email Address</FormLabel>
         <Input
           value={email}
           type="email"
@@ -82,7 +82,7 @@ const Login = () => {
         />
       </FormControl>
       <FormControl id="password" isRequired>
-        <FormLabel>Password</FormLabel>
+        <FormLabel color="white">Password</FormLabel>
         <InputGroup size="md">
           <Input
             value={password}
@@ -115,7 +115,7 @@ const Login = () => {
           setPassword("123456");
         }}
       >
-        Get Guest User Credentials
+        Login as Guest User
       </Button>
     </VStack>
   );

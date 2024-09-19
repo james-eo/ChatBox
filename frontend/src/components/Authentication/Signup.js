@@ -102,7 +102,7 @@ const SignUp = () => {
       data.append("file", pics);
       data.append("upload_preset", "chat-app");
       data.append("cloud_name", "piyushproj");
-      fetch("https://api.cloudinary.com/v1_1/piyushproj/image/upload", {
+      fetch("", {
         method: "post",
         body: data,
       })
@@ -177,7 +177,7 @@ const SignUp = () => {
         </InputGroup>
       </FormControl>
       <FormControl id="pic">
-        <FormLabel>Upload your Picture</FormLabel>
+        <FormLabel>Upload Picture</FormLabel>
         <Input
           type="file"
           p={1.5}
