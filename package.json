@@ -1,22 +1,26 @@
 {
-  "name": "chatvas",
+  "name": "letstalk",
   "version": "1.0.0",
-  "description": "## Project Overview: - **Project Name:** ChatterBox - Real-Time Chat Application - **Team Members:** James Okonkwo",
+  "description": "## Project Overview: - **Project Name:** LetsTalk - Real-Time Chat Application - **Team Members:** James Okonkwo",
   "main": "server.js",
   "scripts": {
     "start": "nodemon backend/server.js"
   },
+  "type": "module",
   "author": "James Okonkwo",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.2",
-    "mongodb": "^6.9.0",
-    "mongoose": "^8.6.2",
-    "nodemon": "^3.1.5"
+    "mongoose": "^8.6.3",
+    "socket.io": "^4.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }
